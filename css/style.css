@@ -1,0 +1,180 @@
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "PT Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #1f2933;
+  background: #f4f5f7;
+}
+
+a { color: #1d4f91; }
+a:hover { color: #123563; }
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Шапка */
+.header {
+  background: #fff;
+  border-bottom: 3px solid #1d4f91;
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.header__title {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  margin: 0;
+}
+.header__sub {
+  font-size: 14px;
+  color: #52606d;
+  margin: 2px 0 0;
+}
+.header__tools button {
+  font: inherit;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid #9aa5b1;
+  background: #fff;
+  color: #1f2933;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.header__tools button:hover { border-color: #1d4f91; color: #1d4f91; }
+
+/* Основная часть */
+main { padding: 32px 0 48px; }
+
+.page-title {
+  font-size: 26px;
+  margin: 0 0 8px;
+}
+.page-lead {
+  margin: 0 0 24px;
+  color: #52606d;
+}
+
+/* Раскрывающиеся разделы */
+.sections { border-top: 1px solid #d3d8de; }
+
+details.section {
+  background: #fff;
+  border: 1px solid #d3d8de;
+  border-top: none;
+}
+details.section > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 48px 14px 18px;
+  font-weight: 700;
+  position: relative;
+}
+details.section > summary::-webkit-details-marker { display: none; }
+details.section > summary::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: 400;
+  color: #1d4f91;
+}
+details.section[open] > summary::after { content: "−"; }
+details.section > summary:hover { background: #f0f3f7; }
+details.section[open] > summary { border-bottom: 1px solid #e4e7eb; background: #f0f3f7; }
+
+.section__body { padding: 16px 18px 20px; }
+.section__body p { margin: 0 0 10px; }
+.section__body ul { margin: 0 0 10px; padding-left: 22px; }
+.section__body h3 {
+  font-size: 15px;
+  margin: 18px 0 8px;
+  text-transform: uppercase;
+  color: #52606d;
+  letter-spacing: .03em;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+.info-table th, .info-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 10px;
+  border: 1px solid #e4e7eb;
+}
+.info-table th {
+  width: 34%;
+  font-weight: 400;
+  color: #52606d;
+  background: #fafbfc;
+}
+
+.docs-list { list-style: none; padding: 0 !important; }
+.docs-list li { margin-bottom: 8px; }
+.docs-list a::before {
+  content: "PDF";
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: #a61b1b;
+  padding: 1px 5px;
+  margin-right: 8px;
+  border-radius: 2px;
+  vertical-align: 1px;
+}
+
+.muted { color: #7b8794; font-style: italic; }
+
+/* Подвал */
+.footer {
+  background: #26323f;
+  color: #d9e2ec;
+  font-size: 14px;
+  padding: 22px 0;
+}
+.footer p { margin: 0 0 4px; }
+.footer strong { color: #fff; }
+
+/* Версия для слабовидящих */
+body.a11y {
+  font-size: 21px;
+  background: #fff;
+  color: #000;
+}
+body.a11y .header, body.a11y details.section, body.a11y details.section > summary,
+body.a11y .info-table th { background: #fff; color: #000; }
+body.a11y .footer { background: #000; }
+body.a11y a { color: #000; text-decoration: underline; }
+body.a11y .footer, body.a11y .footer strong { color: #fff; }
+body.a11y .header__sub, body.a11y .page-lead, body.a11y .section__body h3 { color: #000; }
+body.a11y details.section, body.a11y .info-table th, body.a11y .info-table td { border-color: #000; }
+body.a11y .header__title { font-size: 24px; }
+body.a11y .page-title { font-size: 32px; }
+
+@media (max-width: 600px) {
+  .info-table th, .info-table td { display: block; width: 100%; }
+  .info-table th { border-bottom: none; }
+  .page-title { font-size: 22px; }
+}
